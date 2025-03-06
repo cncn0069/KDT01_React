@@ -9,7 +9,7 @@ export default function FoodCard({ res }) {
     }
 
     const [isShow,setIsShow] = useState(false);
-
+    console.log();
     const handleOnClick = () =>{
         setIsShow(!isShow);
     }
