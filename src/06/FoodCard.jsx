@@ -20,7 +20,7 @@ export default function FoodCard({ res }) {
 
         //h 를 이용해서 위치 높이 영역 결정..!
 
-        <div className='border-2 w-full flex'>
+        <div className='border-2 w-full h-50 flex'>
             {/* && 연산자에 대해서 아직 부족함... */}
             <div className='w-1/3'><img src={`${FoodImage[res["구분"]]}`}></img></div>
             <div className='w-2/3 flex flex-col p-2'>
