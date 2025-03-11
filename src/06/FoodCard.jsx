@@ -22,13 +22,13 @@ export default function FoodCard({ res }) {
                 <div className='text-2xl font-bold h-1/4'>
                     {res["사업장명"]}
                 </div>
-                <p className='h-1/4'>
+                <p className=''>
                 {res["운영주체명"]}
                 </p>
-                <p className='h-2/4'>
+                <p className=''>
                 {res["사업장 소재지"]}
                 </p>
-                <p className='bg-gray-400 h-1/4'>
+                <p className='bg-gray-400 h-1/4 text-center'>
                 {res["팩스번호"]}
                 </p>
             </div>

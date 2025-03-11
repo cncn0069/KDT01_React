@@ -5,8 +5,26 @@ import TailButton from '../ui/TailButton';
 
 
 export default function FoodMain() {
+  //맵으로 불러오기 카테고리
+  let category = FoodData.map(item => item["운영주체 분류"].replaceAll(" ", ""));
+  const [contents, setContents] = useState([]);
+  //카테고리 중복 제거
+  category = [...new Set(category)];
 
-  let contents = FoodData.map(item => <FoodCard res={item} />);
+  //카테고리 수만큼 버튼 생성
+  //{caption,color,onClick}
+
+  const handleOnClick = (value) => {
+    let fillterFoodData = FoodData.filter(item => item['운영주체 분류'].replaceAll(" ", "") == value);
+
+    setContents(fillterFoodData.map(item => <FoodCard key={item["사업장명"]} res={item} />));
+  }
+  let categoryButton = category.map(item => <TailButton key={`${item}`} caption={item} color={'bg-blue-600'} onClick={() => handleOnClick(item)} />);
+
+
+
+
+
 
 
 
@@ -14,6 +32,9 @@ export default function FoodMain() {
     //여기서 h를 풀로 안 해줘서 플렉스 박스가 짤렸음
     //TailButton({caption,color,onClick}
     <>
+      <div className='flex'>
+        {categoryButton}
+      </div>
       <div className='grid grid-cols-2 overflow-y-auto gap-2'>
         {contents}
       </div>

@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import FoodMain from './06/FoodMain'
-import TailButton from './ui/TailButton'
+import MyToggle from './07/MyToggle'
 
 //import './App.css'
 
@@ -20,7 +19,7 @@ function App() {
 
         </header>
         <div className="w-full h-full flex-grow flex flex-col justify-center items-center">
-           <FoodMain />
+          <MyToggle />
         </div>
         <footer className="bg-amber-900 w-full h-20 min-h-20 flex justify-center items-center px-10">
         </footer>
