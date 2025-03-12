@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import MyToggle from './07/MyToggle'
+import MyEffect from './08/MyEffect'
+import MyClock from './09/MyClock'
+import BoxOffice from './10/BoxOffice'
 
 //import './App.css'
 
@@ -19,7 +22,7 @@ function App() {
 
         </header>
         <div className="w-full h-full flex-grow flex flex-col justify-center items-center">
-          <MyToggle />
+          <BoxOffice />
         </div>
         <footer className="bg-amber-900 w-full h-20 min-h-20 flex justify-center items-center px-10">
         </footer>
