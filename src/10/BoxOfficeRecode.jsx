@@ -1,7 +1,18 @@
 import React from 'react'
+import { GoArrowUp } from "react-icons/go";
+import { GoArrowDown } from "react-icons/go";
 
 export default function BoxOfficeRecode({ props }) {
-    console.log(props.audiAcc);
+
+    const changeLocale = (number)=>{
+        return parseInt(number).toLocaleString();
+    }
+    
+    let rankNum = props.rankInten;
+    console.log(props.rankInten);
+
+
+
     return (
         <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
             <th scope="row" className="px-6 py-4">
@@ -11,19 +22,20 @@ export default function BoxOfficeRecode({ props }) {
                 {props.movieNm}
             </td>
             <td className="px-6 py-4">
-                {props.salesAmt}
+                {changeLocale(props.salesAmt)}
             </td>
             <td className="px-6 py-4">
-                {props.audiCnt}
+                {changeLocale(props.audiCnt)}
             </td>
             <td className="px-6 py-4">
-                {props.salesAcc}
+                {changeLocale(props.salesAcc)}
             </td>
             <td className="px-6 py-4">
-                {props.audiAcc}
+                {changeLocale(props.audiAcc)}
             </td>
             <td className="px-6 py-4">
-                {props.rankInten}
+                {rankNum == "0" ? <div className='text-center'>-</div> :  
+        rankNum > 0 ? <div className='flex justify-center items-center'><GoArrowUp className='text-blue-600'/>{rankNum}</div> : <div className='flex justify-center items-center'><GoArrowDown className='text-red-600'/>{Math.abs(rankNum)}</div>}
             </td>
         </tr>
     )

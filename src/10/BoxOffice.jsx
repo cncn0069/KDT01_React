@@ -77,6 +77,7 @@ export default function BoxOffice() {
             {boxTags}
        </tbody>
     </table>
+    <div className='w-full bg-gray-400 h-10'></div>
 </div>
   )
 }
