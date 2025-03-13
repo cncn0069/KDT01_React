@@ -4,6 +4,9 @@ import MyEffect from './08/MyEffect'
 import MyClock from './09/MyClock'
 import BoxOffice from './10/BoxOffice'
 
+import TrafficMain from './11/TrafficMain'
+
+
 //import './App.css'
 
 function App() {
@@ -22,7 +25,7 @@ function App() {
 
         </header>
         <div className="w-full h-full flex-grow flex flex-col justify-center items-center">
-          <BoxOffice />
+          <TrafficMain />
         </div>
         <footer className="bg-amber-900 w-full h-20 min-h-20 flex justify-center items-center px-10">
         </footer>
