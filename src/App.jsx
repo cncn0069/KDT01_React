@@ -2,9 +2,11 @@ import { useState } from 'react'
 import MyToggle from './07/MyToggle'
 import MyEffect from './08/MyEffect'
 import MyClock from './09/MyClock'
-import BoxOffice from './10/BoxOffice'
+import BoxOffice from './13/BoxOffice'
 
 import TrafficMain from './11/TrafficMain'
+import MyRef from './12/MyRef'
+import Gallery from './14/Gallery/Gallery'
 
 
 //import './App.css'
@@ -25,7 +27,7 @@ function App() {
 
         </header>
         <div className="w-full h-full flex-grow flex flex-col justify-center items-center">
-          <TrafficMain />
+          <Gallery />
         </div>
         <footer className="bg-amber-900 w-full h-20 min-h-20 flex justify-center items-center px-10">
         </footer>

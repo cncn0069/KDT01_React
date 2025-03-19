@@ -4,7 +4,9 @@ import BorderBox from '../UI/borderBox';
 import TrafficNav from './TrafficNav';
 
 export default function TrafficMain() {
-   
+   const [tdata,setTdata] = useState();
+
+   const [c1 , setC1] = useState();
 
     const getFecth = async () => {
 
@@ -23,12 +25,28 @@ export default function TrafficMain() {
 
     }
 
+    useEffect(()=>{
+        console.log(tdata);
+
+
+        let temp = tdata.filter(item => item["사고유형대분류"]);
+        temp  = [...temp]
+
+        setC1(temp.map(item => <TailButton caption={item}/>));
+        
+    },[tdata])
+
+    //맨 처음
+    useEffect(()=>{
+
+        getFecth();
+
+    },[]);
+
     
     return (
         <div className='flex-col w-full gap-1'>
-            {c1 && <TrafficNav cur={c1} setCur={setSelC1}/>}
-            {c2 && <TrafficNav cur={c2} setCur={setSelC2}/>}
-            {tags}
+            {c1}
         </div>
     )
 }
