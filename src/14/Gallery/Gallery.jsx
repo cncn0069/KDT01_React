@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import TailCard from '../../UI/TailCard'
-import TailButton from '../../UI/TailButton'
+
 
 export default function Gallery() {
     const searchValue = useRef();
@@ -11,38 +11,37 @@ export default function Gallery() {
 
     const [tags, setTags] = useState();
 
-    const handleOnclick = ()=>{
+    const handleOnclick = () => {
 
         //검색창의 검색어를 가져옴
-        if(searchValue.current.value == "")
-        {
+        if (searchValue.current.value == "") {
             alert("검색어를 입력하세요.");
             searchValue.current.focus();
-        }else{
+        } else {
             setKeyWord(searchValue.current.value);
         }
-        
+
 
     }
 
-    const handleOnclick2 = ()=>{
+    const handleOnclick2 = () => {
 
         //검색창의 검색어를 가져옴
-    searchValue.current.value = "";
-    setTags([]);
+        searchValue.current.value = "";
+        setTags([]);
 
 
     }
 
-    const getFecth = async ()=>{
+    const getFecth = async () => {
         const API_KEY = import.meta.env.VITE_Traffic_API_KEY;
         const SEARCH_KEY = encodeURIComponent(keyWord);
 
         let URL = "https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey="
-        + API_KEY
-        + "&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword="
-        + SEARCH_KEY
-        + "&_type=json";
+            + API_KEY
+            + "&numOfRows=100&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword="
+            + SEARCH_KEY
+            + "&_type=json";
         console.log(URL);
         const resp = await fetch(URL);
         const data = await resp.json();
@@ -52,20 +51,19 @@ export default function Gallery() {
         console.log(tdata);
     }
 
-    useEffect(()=>{
-        setTags(tdata.map(item=> <TailCard key={item.galContentId} imgurl={item.galWebImageUrl} title={item.galTitle} subtitle={item.galPhotographyLocation} kws={item.galSearchKeyword} />))
-    },[tdata]);
+    useEffect(() => {
+        setTags(tdata.map(item => <TailCard key={item.galContentId} imgurl={item.galWebImageUrl} title={item.galTitle} subtitle={item.galPhotographyLocation} kws={item.galSearchKeyword} />))
+    }, [tdata]);
 
 
     //keyWord의 값이 변하면
-    useEffect(()=>{  
-        if(setKeyWord != null && !(keyWord == ""))
-        {
+    useEffect(() => {
+        if (setKeyWord != null && !(keyWord == "")) {
             getFecth();
         }
-    },[keyWord]);
+    }, [keyWord]);
 
-    
+
 
     return (
         <div className='w-full mb-5 h-screen'>
@@ -74,14 +72,14 @@ export default function Gallery() {
                     <div className="relative w-full">
                         <input ref={searchValue} type="text" id="simple-search" className="flex w-full bg-gray-50 border border-gray-300 text-gray-900 
                         text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 ps-1 p-2.5  dark:bg-gray-700
-                         dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                         placeholder="검색할 단어를 입력하세요." required />
+                         dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="검색할 단어를 입력하세요." required />
                     </div>
 
                 </form>
                 <div className='flex w-1/3'>
-                    <TailButton caption={"확인"} color={"bg-blue-500"} onClick={handleOnclick}/>
-                    <TailButton caption={"취소"} color={"bg-blue-500"} onClick={handleOnclick2}/>
+                    <TailButton caption={"확인"} color={"bg-blue-500"} onClick={handleOnclick} />
+                    <TailButton caption={"취소"} color={"bg-blue-500"} onClick={handleOnclick2} />
                 </div>
 
             </div>
@@ -89,8 +87,8 @@ export default function Gallery() {
                 {tags}
             </div>
 
-                
-            </div>
+
+        </div>
     )
 }
 // "galContentId": "2988721",
