@@ -17,7 +17,7 @@ export default function Gallery() {
         if(searchValue.current.value == "")
         {
             alert("검색어를 입력하세요.");
-            searchValue.current.forcus();
+            searchValue.current.focus();
         }else{
             setKeyWord(searchValue.current.value);
         }
@@ -69,7 +69,7 @@ export default function Gallery() {
 
     return (
         <div className='w-full mb-5 h-screen'>
-            <div className='flex w-full p-5 shadow-sm mb-5'>
+            <div className='flex items-center justify-center w-full p-5 shadow-sm mb-5'>
                 <form class="flex items-center w-2/3 mr-3">
                     <div className="relative w-full">
                         <input ref={searchValue} type="text" id="simple-search" className="flex w-full bg-gray-50 border border-gray-300 text-gray-900 
@@ -85,7 +85,7 @@ export default function Gallery() {
                 </div>
 
             </div>
-            <div className='grid grid-cols-3 gap-2 h-full overflow-y-auto'>
+            <div className='grid grid-cols-3 gap-2 h-full mb-30'>
                 {tags}
             </div>
 

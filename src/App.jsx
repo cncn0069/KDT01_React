@@ -7,6 +7,8 @@ import BoxOffice from './13/BoxOffice'
 import TrafficMain from './11/TrafficMain'
 import MyRef from './12/MyRef'
 import Gallery from './14/Gallery/Gallery'
+import Festival from './14/Festival'
+
 
 
 //import './App.css'
@@ -20,13 +22,13 @@ function App() {
 
   return (
     <>
-      <div className='w-2/3 h-screen mx-auto
+      <div className='w-2/3 min-h-20 mx-auto
                       flex flex-col xl:w-2/3 xl:flex-col xl:justify-center xl:items-center'>
         <div className='bg-orange-300 w-full min-h-25 h-2 rounded-t-4xl pl-5 pt-2 mt-2'>PNU KD01</div>
         <header className='w-full h-30 min-h-30 mb-5 font-bold bg-orange-300 text-black flex justify-center items-center rounded-b-3xl'>
 
         </header>
-        <div className="w-full h-full flex-grow flex flex-col justify-center items-center">
+        <div className="w-full h-full flex-grow flex flex-col overflow-y-auto justify-center items-center mb-5">
           <Gallery />
         </div>
         <footer className="bg-amber-900 w-full h-20 min-h-20 flex justify-center items-center px-10">
